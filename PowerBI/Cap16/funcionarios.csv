@@ -1,0 +1,32 @@
+select * from cap16."TB_FUNC" limit 5;
+
+select * from cap16."TB_FUNC" fetch first 3 rows only;
+
+select distinct numero_filhos from cap16."TB_FUNC";
+
+select * from cap16."TB_FUNC" where idade = 30;
+
+select count(*) from cap16."TB_FUNC" where idade != 40 and estado_civil ='casado';
+
+select * from cap16."TB_FUNC" where idade > 40 and estado_civil ='casado';
+
+select * from cap16."TB_FUNC" where idade between 30 and 35;
+
+select * from cap16."TB_FUNC" where grau_instrucao like '%medio';
+
+select * from cap16."TB_FUNC" where idade in (30, 40, 50);
+
+select * from cap16."TB_FUNC" where numero_filhos is null;
+
+select * from cap16."TB_FUNC" order by salario_hora desc, reg_procedencia desc;
+
+select min(salario_hora), max(salario_hora), avg(salario_hora), count(*), sum(salario_hora)
+from cap16."TB_FUNC";
+
+select round(avg(salario_hora)), reg_procedencia from cap16."TB_FUNC" group by reg_procedencia;
+
+update cap16."TB_FUNC"
+set numero_filhos = null
+where numero_filhos = 'NA';
+
+commit;
